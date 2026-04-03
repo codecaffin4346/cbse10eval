@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI CBSE Math Evaluator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="nav">
+        <h1>CBSE Math Evaluator</h1>
+        <div class="badge">AI-Powered Validation</div>
+    </div>
+
+    <div class="container">
+        <!-- Input Section -->
+        <main class="input-section">
+            <div class="card">
+                <h2>Evaluate Submission</h2>
+                <p class="subtitle">Enter the question parameters and student response.</p>
+                
+                <div class="form-group">
+                    <label for="question">Question Text</label>
+                    <textarea id="question" rows="3" placeholder="e.g. Solve the quadratic equation x^2 - 5x + 6 = 0"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentAnswer">Student's Answer</label>
+                    <textarea id="studentAnswer" rows="6" placeholder="Paste the exact step-by-step answer written by the student..."></textarea>
+                </div>
+
+                <div class="form-group marks-group">
+                    <label for="totalMarks">Maximum Marks</label>
+                    <input type="number" id="totalMarks" min="1" max="100" value="5">
+                </div>
+
+                <button id="evaluateBtn" class="primary-btn">
+                    <span id="btnText">Evaluate Answer</span>
+                    <div id="btnSpinner" class="spinner hidden"></div>
+                </button>
+            </div>
+        </main>
+
+        <!-- Results Section -->
+        <aside class="results-section hidden" id="resultsSection">
+            <div class="card highlights-card">
+                <div class="score-header">
+                    <h2>Final Score</h2>
+                    <div class="score-circle">
+                        <span id="awardedMarks">0</span>
+                        <span class="divider">/</span>
+                        <span id="maxMarksFinal">0</span>
+                    </div>
+                </div>
+                
+                <div class="feedback-box">
+                    <h3>Examiner Feedback</h3>
+                    <p id="studentFeedback" class="feedback-text"></p>
+                </div>
+            </div>
+
+            <div class="card error-card hidden" id="errorCard">
+                <h3 class="error-title">Identified Errors</h3>
+                <ul id="errorList" class="error-list">
+                    <!-- Errors injected here dynamically -->
+                </ul>
+            </div>
+
+            <div class="card steps-card">
+                <h3>Step-by-Step Breakdown</h3>
+                <div id="stepsContainer" class="steps-timeline">
+                    <!-- Steps injected here dynamically -->
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
